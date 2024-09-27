@@ -12,8 +12,7 @@ This project contains static pages for a website, providing a foundational struc
   - [Login](#login)
 - [Technologies Used](#technologies-used)
 - [Setup](#setup)
-- [Contributing](#contributing)
-- [License](#license)
+- [Learn More](#learn-more)
 
 ## Pages
 
