@@ -1,0 +1,23 @@
+{
+    "login": [
+    {
+      "uname": "Prachi@13",
+      "pass": "123"
+    },
+    {
+      "uname": "sachi@123",
+      "pass": "sachi"
+    }
+  ],
+  "stu": [
+    {
+      "txtfname": "g",
+      "txtlmane": "d",
+      "txtaddress": "r",
+      "txtuser": "g",
+      "txtpass": "q2",
+      "txtseca": "d",
+      "id": 1
+    }
+  ]
+}

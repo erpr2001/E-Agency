@@ -1,0 +1,42 @@
+<!-- <p>lgn works!</p> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+
+
+
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src="../assets/home e-agency2.jpg" alt="Architecture" width="1500" height="800">
+
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <!-- <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>E</b></span> <span class="w3-hide-small w3-text-light-grey">Agency</span></h1> -->
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding"><b> 
+            <form #frm1="ngForm">
+              <div class="login-details">
+                <div class="p"><label for="exampleInputEmail1" style="color:darkslategray;font-family: 'Franklin Gothic Medium'; font-size:x-large;">Login Here</label></div><br>
+                User Name: &nbsp;
+                <input type="text" ngModel required #nm="ngModel" placeholder="Enter Name" name="nm">
+                <h6><span required *ngIf="nm.invalid && nm.touched">
+                    Please do not empty field! </span><br></h6>
+                Password: &nbsp;
+                <input type="password" #psw="ngModel" ngModel placeholder="Enter Password" name="psw">
+                <h6><span required *ngIf="nm.invalid && nm.touched">
+                    Input invalid, try again</span></h6>
+                <br>
+                <button (click)="checkdata(nm.value,psw.value)" class="btn btn-primary"
+                  [disabled]="frm1.invalid">Submit</button>
+              </div>
+            </form>
+          </b></span></h1>
+    </div>
+  </header>
+</body>

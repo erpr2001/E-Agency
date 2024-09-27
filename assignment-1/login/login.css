@@ -1,0 +1,66 @@
+.login-details {
+    width: 340px;
+    margin: 50px auto;
+    font-size: 15px;
+}
+
+ .login-details {
+    margin-bottom: 200px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    color: black;
+} 
+
+.login-details h2 {
+    margin: 0 0 15px;
+}
+
+.login-details,
+.btn {
+    min-height: 38px;
+    border-radius: 12px;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+h6 {
+    /* font-size: 1rem; */
+    font-size: 12px;
+    font-style: italic;
+    padding-left: 60px;
+    color: red;
+}  
+
+body {
+    overflow: hidden;
+    /* Hide scrollbars */
+}
+
+/* form {
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    width: 600px;
+    padding: 40px;
+    margin-top: 2%;
+    margin-left: 28%;
+} */
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+}
