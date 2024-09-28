@@ -1,0 +1,52 @@
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Banner */
+.header-banner {
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.header-banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Header Text */
+.header-text {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Filter Section */
+.filter-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.filter-section .form-control,
+.filter-section .form-select {
+    border-radius: 0;
+}
+
+/* Booking List */
+.table-responsive {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.bookings-list th,
+.bookings-list td {
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* Empty list */
+#empty-message {
+    font-style: italic;
+    color: #888; 
+}
