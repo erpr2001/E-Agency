@@ -81,7 +81,7 @@
               <label for="uarea">Area:</label>
               <select id="uarea" class="form-control" required>
                 <option value="" disabled selected>Select area</option>
-                <!-- Dynamically populated options could be added here -->
+                
                 <option value="Area 1">Area 1</option>
                 <option value="Area 2">Area 2</option>
                 <option value="Area 3">Area 3</option>
@@ -104,7 +104,7 @@
               <label for="uques">Security Question:</label>
               <select id="uques" class="form-control" required>
                 <option value="" disabled selected>Select Security Question</option>
-                <!-- Dynamically populated options could be added here -->
+               
                 <option value="Question 1">Question 1</option>
                 <option value="Question 2">Question 2</option>
                 <option value="Question 3">Question 3</option>
@@ -131,7 +131,7 @@
       return false; // Prevent default form submission for demo
     }
 
-    // Example error handling - you may replace with actual validation logic
+    // Example error handling 
     document.getElementById('registerForm').addEventListener('submit', function (event) {
       const inputs = this.querySelectorAll('input[required], select[required]');
       inputs.forEach(input => {
