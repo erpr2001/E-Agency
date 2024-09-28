@@ -68,3 +68,7 @@ function declineBooking(contact) {
     alert(`Booking declined for ${contact}.`);
     //TODO
 }
+
+window.onload = function() {
+    searchBookings();
+};
