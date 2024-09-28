@@ -1,12 +1,11 @@
-<!-- <p>lgn works!</p> -->
 <!DOCTYPE html>
 <html>
 
 <head>
-  <!-- <title>W3.CSS Template</title> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="login.css">
   <title>Services - E Agency</title>
@@ -40,36 +39,74 @@
         </div>
       </div>
     </nav>
-
   </div>
 
   <!-- Login Form -->
+  <div>
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+      <img class="w3-image" src="../assets/home e-agency2.jpg" alt="Architecture" width="1500" height="800">
 
-  <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="../assets/home e-agency2.jpg" alt="Architecture" width="1500" height="800">
+      <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding"><b>
+              <form id="loginForm">
+                <div class="login-details">
+                  <div class="p">
+                    <label for="username" style="color:darkslategray;font-family: 'Franklin Gothic Medium'; font-size:x-large;">Login Here</label>
+                  </div><br>
+                  User Name: &nbsp;
+                  <input type="text" id="username" placeholder="Enter Name" required>
+                  <h6 id="usernameError" style="color:red; font-size:12px; display:none;">Please do not empty field!</h6>
+                  <br>
+                  Password: &nbsp;
+                  <input type="password" id="password" placeholder="Enter Password" required>
+                  <h6 id="passwordError" style="color:red; font-size:12px; display:none;">Input invalid, try again</h6>
+                  <br>
+                  <button type="submit" id="submitButton" class="btn btn-primary" disabled>Submit</button>
+                </div>
+              </form>
+            </b></span>
+        </h1>
+      </div>
+    </header>
+  </div>
 
-    <div class="w3-display-middle w3-margin-top w3-center">
-      <!-- <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>E</b></span> <span class="w3-hide-small w3-text-light-grey">Agency</span></h1> -->
-      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding"><b>
-            <form #frm1="ngForm">
-              <div class="login-details">
-                <div class="p"><label for="exampleInputEmail1"
-                    style="color:darkslategray;font-family: 'Franklin Gothic Medium'; font-size:x-large;">Login
-                    Here</label></div><br>
-                User Name: &nbsp;
-                <input type="text" ngModel required #nm="ngModel" placeholder="Enter Name" name="nm">
-                <h6><span required *ngIf="nm.invalid && nm.touched">
-                    Please do not empty field! </span><br></h6>
-                Password: &nbsp;
-                <input type="password" #psw="ngModel" ngModel placeholder="Enter Password" name="psw">
-                <h6><span required *ngIf="nm.invalid && nm.touched">
-                    Input invalid, try again</span></h6>
-                <br>
-                <button (click)="checkdata(nm.value,psw.value)" class="btn btn-primary"
-                  [disabled]="frm1.invalid">Submit</button>
-              </div>
-            </form>
-          </b></span></h1>
-    </div>
-  </header>
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const submitButton = document.getElementById('submitButton');
+    const usernameError = document.getElementById('usernameError');
+    const passwordError = document.getElementById('passwordError');
+
+    // Enable/disable the submit button based on input validity
+    function toggleSubmitButton() {
+      submitButton.disabled = !usernameInput.value || !passwordInput.value;
+    }
+
+    usernameInput.addEventListener('input', function () {
+      toggleSubmitButton();
+      usernameError.style.display = usernameInput.value ? 'none' : 'block';
+    });
+
+    passwordInput.addEventListener('input', function () {
+      toggleSubmitButton();
+      passwordError.style.display = passwordInput.value ? 'none' : 'block';
+    });
+
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+
+      // Here you can add your login logic (e.g., check data or send to server)
+      console.log('Username:', username, 'Password:', password);
+
+      // Reset form fields
+      usernameInput.value = '';
+      passwordInput.value = '';
+      toggleSubmitButton(); // Update the submit button state
+    });
+  </script>
 </body>
+
+</html>

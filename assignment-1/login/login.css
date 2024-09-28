@@ -35,7 +35,6 @@ td {
 }
 
 h6 {
-    /* font-size: 1rem; */
     font-size: 12px;
     font-style: italic;
     padding-left: 60px;
@@ -44,18 +43,8 @@ h6 {
 
 body {
     overflow: hidden;
-    /* Hide scrollbars */
 }
 
-/* form {
-    border-style: solid;
-    border-width: 3px;
-    border-color: black;
-    width: 600px;
-    padding: 40px;
-    margin-top: 2%;
-    margin-left: 28%;
-} */
 
 div.sticky {
     position: -webkit-sticky;
