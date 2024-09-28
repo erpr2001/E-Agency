@@ -62,3 +62,7 @@ function searchAgencies() {
 function bookAgency(agencyName) {
     alert(`Booking initiated for ${agencyName}.`);
 }
+
+window.onload = function() {
+    searchAgencies();
+};
