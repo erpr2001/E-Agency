@@ -3,26 +3,57 @@
 <html>
 
 <head>
-  <title>W3.CSS Template</title>
+  <!-- <title>W3.CSS Template</title> -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="login.css">
+  <title>Services - E Agency</title>
 </head>
 
 <body>
+  <div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">E Agency</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../gallery/gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../services/services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-
-
+  </div>
 
   <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
     <img class="w3-image" src="../assets/home e-agency2.jpg" alt="Architecture" width="1500" height="800">
 
     <div class="w3-display-middle w3-margin-top w3-center">
       <!-- <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>E</b></span> <span class="w3-hide-small w3-text-light-grey">Agency</span></h1> -->
-      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding"><b> 
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding"><b>
             <form #frm1="ngForm">
               <div class="login-details">
-                <div class="p"><label for="exampleInputEmail1" style="color:darkslategray;font-family: 'Franklin Gothic Medium'; font-size:x-large;">Login Here</label></div><br>
+                <div class="p"><label for="exampleInputEmail1"
+                    style="color:darkslategray;font-family: 'Franklin Gothic Medium'; font-size:x-large;">Login
+                    Here</label></div><br>
                 User Name: &nbsp;
                 <input type="text" ngModel required #nm="ngModel" placeholder="Enter Name" name="nm">
                 <h6><span required *ngIf="nm.invalid && nm.touched">
