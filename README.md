@@ -19,8 +19,8 @@ The mobile application complements the web experience by offering on-the-go acce
 ## Current Progress
 
 - **Web Application**: Initial setup with static pages.
-- **Mobile Application**: Basic structure and navigation setup using React Native.
-- **Backend Services**: API endpoints under development using Nest.js, integrating MongoDB for data management.
+- **Mobile Application**: TBC...
+- **Backend Services**: TBC...
 
 ## Technologies Used
 
