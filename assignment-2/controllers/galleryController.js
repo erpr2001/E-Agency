@@ -1,5 +1,5 @@
 // controllers/galleryController.js
-const Gallery = require('./models/Gallery');
+const Gallery = require('../models/gallery');
 const multer = require('multer');
 const path = require('path');
 
@@ -35,5 +35,19 @@ exports.getGalleryItems = async (req, res) => {
     res.json(items);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+};
+
+exports.addGalleryItem = async (req, res) => {
+  try {
+    const newItem = new GalleryItem({
+      title: req.body.name,
+      description: req.body.description,
+      imageUrl: req.body.imageUrl
+    });
+    await newItem.save();
+    res.status(201).json({ message: 'Gallery item added', newItem });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to add gallery item' });
   }
 };
