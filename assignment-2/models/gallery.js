@@ -6,6 +6,7 @@ const GallerySchema = new mongoose.Schema({
   imageUrl: { type: String, required: true },
   description: { type: String },
   createdAt: { type: Date, default: Date.now },
+  isDeleted: { type: Boolean, default: false } 
 });
 
 module.exports = mongoose.model('Gallery', GallerySchema);

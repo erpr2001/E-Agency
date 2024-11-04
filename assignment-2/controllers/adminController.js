@@ -1,5 +1,6 @@
 // controllers/adminController.js
 const Admin = require('../models/admin');
+const Gallery = require('../models/gallery');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -32,15 +33,66 @@ exports.loginAdmin = async (req, res) => {
 
 
 exports.getAllRegisteredData = async (req, res) => {
+  const { page = 1, limit = 10, fields } = req.query; // Pagination and field limiting from query params
+
   try {
-    // Fetch all users or gallery items based on your requirement
-    const admins = await Admin.find();  // If you want to fetch users
-    const galleryItems = await Gallery.find();  // If you want to fetch gallery items
+    // Fetching admins (exclude soft-deleted admins)
+    const admins = await Admin.find({ isDeleted: false })
+      .select(fields ? fields.split(',').join(' ') : '') // Select specified fields
+      .limit(parseInt(limit))
+      .skip((parseInt(page) - 1) * parseInt(limit));
+
+    // Fetching gallery items (exclude soft-deleted items)
+    const galleryItems = await Gallery.find({ isDeleted: false })
+      .select(fields ? fields.split(',').join(' ') : '')
+      .limit(parseInt(limit))
+      .skip((parseInt(page) - 1) * parseInt(limit));
 
     res.json({
-      admins,        // Include users if needed
-      galleryItems  // Include gallery items if needed
+      admins,
+      galleryItems
     });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.softDeleteAdmin = async (req, res) => {
+  try {
+    const adminId = req.params.id;
+    const admin = await Admin.findByIdAndUpdate(adminId, { isDeleted: true }, { new: true });
+    if (!admin) return res.status(404).json({ message: 'Admin not found' });
+
+    res.json({ message: 'Admin soft deleted successfully', admin });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+////
+exports.getAdminById = async (req, res) => {
+  try {
+    const admin = await Admin.findById(req.params.id).select('-password'); // Exclude password
+    if (!admin || admin.isDeleted) return res.status(404).json({ message: 'Admin not found' });
+    res.json(admin);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+exports.updateAdmin = async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const updatedFields = { username };
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      updatedFields.password = await bcrypt.hash(password, salt);
+    }
+    const admin = await Admin.findByIdAndUpdate(req.params.id, updatedFields, { new: true });
+    if (!admin || admin.isDeleted) return res.status(404).json({ message: 'Admin not found' });
+
+    res.json({ message: 'Admin updated successfully', admin });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
