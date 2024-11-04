@@ -2,26 +2,115 @@
 
 E-Agency is a platform designed for both web and mobile applications. It provides a user-friendly interface for agencies and clients to showcase services, manage bookings, and streamline interactions. This project is built using modern web and mobile development technologies, including TypeScript, JavaScript, React, Bootstrap, MongoDB, and Nest.js.
 
-## Table of Contents
+# E-Agency Backend
 
-- [Project Overview](#project-overview)
-- [Current Progress](#current-progress)
-- [Technologies Used](#technologies-used)
-- [Setup](#setup)
-- [Contact Information](#contact-information)
+This backend service is built for managing Admins and Gallery Items with core functionalities like CRUD operations, pagination, soft deletion, and field limiting. The project leverages MongoDB Atlas as a cloud database, with secure access using environment variables for sensitive data.
+Table of Contents
 
-## Project Overview
+    Features
+    Technologies Used
+    Installation
+    Environment Variables
+    API Endpoints
+    Data Models
+    Error Handling
+    Usage
 
-E-Agency provides a foundational structure for a digital platform that connects agencies with clients. The web application includes static pages that serve as the first stage of the project, providing essential functionalities like browsing services, viewing galleries, managing bookings, and user authentication through registration and login pages.
+Features
 
-The mobile application complements the web experience by offering on-the-go access to services and bookings, making the platform accessible anytime, anywhere.
+    Admin Management: Register, login, update, read, and soft-delete admin accounts.
+    Gallery Management: Create, update, read, and soft-delete gallery items with image uploads.
+    Pagination: Control the number of results per request using query parameters.
+    Field Limiting: Customize API responses to return specific fields for more efficient data retrieval.
+    Soft Deletion: Exclude soft-deleted records from active results without permanent deletion.
 
-## Current Progress
+Technologies Used
 
-- **Web Application**: Initial setup with static pages.
-- **Mobile Application**: TBC...
-- **Backend Services**: TBC...
+    Node.js: Server-side JavaScript runtime
+    Express.js: Web application framework for Node.js
+    MongoDB Atlas: Cloud database service for MongoDB
+    Mongoose: MongoDB object modeling for Node.js
+    JWT: For secure admin authentication
+    Multer: Middleware for handling file uploads
+    Bcrypt: For password hashing
 
+Install and clone and then set up environment variables: Create a .env file in the root directory with the following variables (see Environment Variables for details).
+
+Run the server:
+
+```bash
+
+    npm start
+
+    The server should now be running on http://localhost:3000
+```
+
+Environment Variables
+
+Configure the following environment variables in your .env file:
+
+
+
+MONGODB_URI=your_mongodb_atlas_uri
+JWT_SECRET=your_jwt_secret
+PORT=3000
+
+    MONGODB_URI: URI for your MongoDB Atlas database.
+    JWT_SECRET: Secret key for signing JWT tokens.
+    PORT: Port on which the server will run (default: 3000).
+
+## API Endpoints
+## Admin Routes
+
+    Register Admin: POST /api/admin/register
+    Login Admin: POST /api/admin/login
+    Get All Admins (with pagination and field limiting): GET /api/admin
+    Get Admin by ID: GET /api/admin/:id
+    Update Admin: PUT /api/admin/:id
+    Soft Delete Admin: DELETE /api/admin/:id
+
+## Gallery Routes
+
+    Create Gallery Item: POST /api/gallery
+    Get All Gallery Items (with pagination and field limiting): GET /api/gallery
+    Get Gallery Item by ID: GET /api/gallery/:id
+    Update Gallery Item: PUT /api/gallery/:id
+    Soft Delete Gallery Item: DELETE /api/gallery/:id
+
+## Data Models
+## Admin Model
+
+## Attributes:
+
+    username: Unique identifier for the admin.
+    password: Hashed password for secure authentication.
+    isDeleted: Boolean flag for soft deletion.
+    createdAt: Timestamp of creation.
+    updatedAt: Timestamp of last update.
+
+## Gallery Model
+
+## Attributes:
+
+    title: Title of the gallery item.
+    description: Description of the gallery item.
+    imageUrl: Path of the uploaded image.
+    createdBy: Reference to the admin who created it.
+    isDeleted: Boolean flag for soft deletion.
+    createdAt: Timestamp of creation.
+    updatedAt: Timestamp of last update.
+
+## Error Handling
+
+    400 Bad Request: For invalid data submissions.
+    404 Not Found: For non-existing records.
+    500 Server Error: For unexpected server issues.
+
+## Usage
+
+    Soft Deletion: Records are "soft deleted" using the isDeleted flag. This keeps the data but excludes it from active queries.
+    Pagination and Field Limiting: Use page, limit, and fields query parameters for paginated and optimized data retrieval.
+        Example: GET /api/admin?page=1&limit=5&fields=username,createdAt
 ## Technologies Used
 
 ### Frontend (Web and Mobile)
@@ -52,11 +141,7 @@ cd web
 npm install
 npm start
 
-# Setup Mobile Application
-TBC...
 
-# Setup Backend Services
-TBC...
 
 ```
 
