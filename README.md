@@ -81,36 +81,33 @@ PORT=3000
 ## Admin Model
 
 ## Attributes:
-
-    username: Unique identifier for the admin.
-    password: Hashed password for secure authentication.
-    isDeleted: Boolean flag for soft deletion.
-    createdAt: Timestamp of creation.
-    updatedAt: Timestamp of last update.
+username: Unique identifier for the admin.
+password: Hashed password for secure authentication.
+isDeleted: Boolean flag for soft deletion.
+createdAt: Timestamp of creation.
+updatedAt: Timestamp of last update.
 
 ## Gallery Model
 
 ## Attributes:
 
-    title: Title of the gallery item.
-    description: Description of the gallery item.
-    imageUrl: Path of the uploaded image.
-    createdBy: Reference to the admin who created it.
-    isDeleted: Boolean flag for soft deletion.
-    createdAt: Timestamp of creation.
-    updatedAt: Timestamp of last update.
+title: Title of the gallery item.
+description: Description of the gallery item.
+imageUrl: Path of the uploaded image.
+createdBy: Reference to the admin who created it.
+isDeleted: Boolean flag for soft deletion.
+createdAt: Timestamp of creation.
+updatedAt: Timestamp of last update.
 
 ## Error Handling
-
-    400 Bad Request: For invalid data submissions.
-    404 Not Found: For non-existing records.
-    500 Server Error: For unexpected server issues.
+400 Bad Request: For invalid data submissions.
+404 Not Found: For non-existing records.
+500 Server Error: For unexpected server issues.
 
 ## Usage
-
-    Soft Deletion: Records are "soft deleted" using the isDeleted flag. This keeps the data but excludes it from active queries.
-    Pagination and Field Limiting: Use page, limit, and fields query parameters for paginated and optimized data retrieval.
-        Example: GET /api/admin?page=1&limit=5&fields=username,createdAt
+ Soft Deletion: Records are "soft deleted" using the isDeleted flag. This keeps the data but excludes it from active queries.
+ Pagination and Field Limiting: Use page, limit, and fields query parameters for paginated and optimized data retrieval.
+Example: GET /api/admin?page=1&limit=5&fields=username,createdAt
 ## Technologies Used
 
 ### Frontend (Web and Mobile)
