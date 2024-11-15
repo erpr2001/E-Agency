@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Role } from 'src/role.enum';
 
 @Schema({ timestamps: true })
 export class User extends Document {
@@ -18,8 +19,8 @@ export class User extends Document {
     @Prop()
     phone: string;
 
-    @Prop()
-    role: string;
+    @Prop({type: [String], enum: Role})
+    roles: string[];
 
     @Prop()
     profileImage: string;
