@@ -5,20 +5,7 @@
 - **Nest.js**
 - **MongoDB**
 
-## Setup for admin and gallery API
-
-Below are the commands to clone the project repository, install dependencies, and start the backend API.
-
-```bash
-# Clone the Repository
-git clone https://github.com/erpr2001/E-Agency.git
-cd 
-npm install
-npm run start
-
-```
-
-## Setup for users and bookings API
+## Setup
 
 Below are the commands to clone the project repository, install dependencies, and start the backend API.
 
