@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsEmail } from "class-validator";
+import { IsNotEmpty, IsEmail } from '@nestjs/class-validator';
 
 export class SignInDto {
     @IsNotEmpty()
