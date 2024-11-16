@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@nestjs/config": "github:nestjs/config",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "^2.0.6",
+    "@nestjs/mongoose": "^10.1.0",
+    "@nestjs/platform-express": "^10.4.8",
+    "@nestjs/testing": "^10.4.8",
+    "@nestjs/typeorm": "^10.0.2",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "mongodb": "^5.9.2",
+    "mongoose": "^8.8.1",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/jest": "^29.5.14"
+  }
+}
