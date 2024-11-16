@@ -19,9 +19,13 @@ export class User extends Document {
     @Prop()
     phone: string;
 
-    @Prop({type: [String], enum: Role})
-    roles: string[];
+    // @Prop({type: [String], enum: Role})
+    // roles: string[];
 
+    @Prop({ type: [String], enum: Role, 
+        default: [Role.User] })
+    roles: Role[];
+    
     @Prop()
     profileImage: string;
 
