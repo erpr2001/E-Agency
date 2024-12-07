@@ -11,7 +11,12 @@ export class Admin extends Document {
 
   @Prop({ default: false })
   isDeleted: boolean; // Soft delete flag
+
+  @Prop({ type: [String], default: ['Admin'] }) // Admin role
+  roles: string[];
 }
+
+
 
 export const AdminSchema = SchemaFactory.createForClass(Admin);
 

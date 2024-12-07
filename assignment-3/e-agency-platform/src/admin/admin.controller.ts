@@ -5,11 +5,12 @@ import { UpdateAdminDto } from './dto/update-admin.dto';
 import { Roles } from 'src/roles.decorator';
 import { Role } from 'src/role.enum';
 
+@Roles(Role.Admin)
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
-  @Roles(Role.Admin)
+  
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.registerAdmin(createAdminDto); 

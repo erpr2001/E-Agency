@@ -6,6 +6,10 @@ import { BookingsModule } from './bookings/bookings.module';
 import { AdminModule } from './admin/admin.module';
 import { GalleryModule } from './gallery/gallery.module';
 
+import dotenv from 'dotenv';
+dotenv.config(); // This loads the environment variables from your .env file
+
+
 @Module({
   imports: [
     ConfigModule.forRoot({
