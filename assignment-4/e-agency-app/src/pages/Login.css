@@ -1,0 +1,43 @@
+/* Wrapper for the login content */
+.login-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 16px;
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+}
+
+/* Login form container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
+
+/* Login button */
+.login-button {
+  margin-top: 20px;
+  --background: #3880ff;
+  --background-hover: #3171e0;
+  --background-activated: #2c62d6;
+  --color: #ffffff;
+}
