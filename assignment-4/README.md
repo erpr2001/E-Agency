@@ -1,6 +1,6 @@
 # E-Agency Project Web & Mobile App
 
-E-Agency is a platform designed for both web and mobile applications. It provides a user-friendly interface for agencies and clients to showcase services, manage bookings, and streamline interactions. This project is built using modern web and mobile development technologies, including TypeScript, JavaScript, React, Bootstrap, MongoDB, and Nest.js.
+E-Agency is a platform designed for both web and mobile applications. It provides a user-friendly interface for agencies and clients to showcase services, manage bookings, and streamline interactions. This project is built using modern web and mobile development technologies, including TypeScript, JavaScript, React, Tailwind, MongoDB, and Nest.js.
 
 ## Technologies Used
 
