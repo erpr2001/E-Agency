@@ -14,7 +14,7 @@ export class AuthService {
     const user = await this.usersService.getByEmail(email);
     const isMatch: boolean = await bcrypt.compare(pass, user.password);
     if (isMatch == true) {
-      const payload = { sub: user.userId, email: user.email, roles: user.role };
+      const payload = { sub: user.userId, email: user.email, roles: user.roles };
       return {
         access_token: await this.jwtService.signAsync(payload),
       };

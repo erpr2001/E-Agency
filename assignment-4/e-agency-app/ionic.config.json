@@ -1,0 +1,7 @@
+{
+  "name": "e-agency-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

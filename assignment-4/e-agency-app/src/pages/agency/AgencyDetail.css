@@ -1,0 +1,39 @@
+/* Container for detail content */
+.agency-detail {
+    padding: 16px;
+  }
+  
+  .agency-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .agency-detail h2,
+  .agency-detail h3 {
+    margin: 8px 0;
+    font-size: 1.2rem;
+  }
+  
+  .agency-detail h3 {
+    color: #666;
+  }
+  
+  .agency-detail p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .agency-detail h2,
+    .agency-detail h3 {
+      font-size: 1rem;
+    }
+  
+    .agency-detail p {
+      font-size: 0.9rem;
+    }
+  }
