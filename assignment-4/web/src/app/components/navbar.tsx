@@ -1,37 +1,28 @@
 'use client'
-// import React from 'react';
-// import Link from 'next/link';
 
-// const Navbar: React.FC = () => {
-//   return (
-//     <nav>
-//       <Link href="/">Home </Link>
-//       <Link href="/login"> Login </Link>
-//       <Link href="/register"> Register </Link>
-//       <Link href="/booking-status"> Booking Status </Link>
-//       <Link href="/gallery"> Gallery </Link>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
 const Navbar: React.FC = () => {
+  const { data: session } = useSession();
 
   useEffect(() => {
     const btn = document.querySelector("button.mobile-menu-button");
     const menu = document.querySelector(".mobile-menu");
 
-    if (btn && menu) {
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-    }
+    const toggleMenu = () => menu?.classList.toggle("hidden");
+
+    btn?.addEventListener("click", toggleMenu);
+
+    return () => {
+      btn?.removeEventListener("click", toggleMenu);
+    };
   }, []);
+
+  const handleSignOut = async () => {
+    await signOut({ callbackUrl: '/' });
+  };
 
   return (
     <nav className="bg-gray-800 shadow-lg">
@@ -47,9 +38,20 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-1">
             <Link href="/" className="py-4 px-2 text-gray-300 hover:text-white transition duration-300">Home</Link>
             <Link href="/gallery" className="py-4 px-2 text-gray-300 hover:text-white transition duration-300">Gallery</Link>
-            <Link href="/booking-status" className="py-4 px-2 text-gray-300 hover:text-white transition duration-300">Booking Status</Link>
-            <Link href="/login" className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Login</Link>
-            <Link href="/register" className="py-2 px-2 font-medium text-white bg-purple-500 rounded hover:bg-purple-400 transition duration-300">Register</Link>
+            {session ? (
+              <>
+                <Link href="/booking-status" className="py-4 px-2 text-gray-300 hover:text-white transition duration-300">Booking Status</Link>
+                {session.user.role === 'admin' && (
+                  <Link href="/admin/dashboard" className="py-4 px-2 text-gray-300 hover:text-white transition duration-300">Admin</Link>
+                )}
+                <button onClick={handleSignOut} className="py-2 px-2 font-medium text-white bg-red-500 rounded hover:bg-red-400 transition duration-300">Logout</button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Login</Link>
+                <Link href="/register" className="py-2 px-2 font-medium text-white bg-purple-500 rounded hover:bg-purple-400 transition duration-300">Register</Link>
+              </>
+            )}
           </div>
           <div className="md:hidden flex items-center">
             <button className="outline-none mobile-menu-button">
@@ -73,9 +75,20 @@ const Navbar: React.FC = () => {
         <ul className="">
           <li><Link href="/" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Home</Link></li>
           <li><Link href="/gallery" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Gallery</Link></li>
-          <li><Link href="/booking-status" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Booking Status</Link></li>
-          <li><Link href="/login" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Login</Link></li>
-          <li><Link href="/register" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Register</Link></li>
+          {session ? (
+            <>
+              <li><Link href="/booking-status" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Booking Status</Link></li>
+              {session.user.role === 'admin' && (
+                <li><Link href="/admin/dashboard" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Admin</Link></li>
+              )}
+              <li><button onClick={handleSignOut} className="block w-full text-left text-sm px-2 py-4 text-white hover:bg-red-500 transition duration-300">Logout</button></li>
+            </>
+          ) : (
+            <>
+              <li><Link href="/login" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Login</Link></li>
+              <li><Link href="/register" className="block text-sm px-2 py-4 text-white hover:bg-green-500 transition duration-300">Register</Link></li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

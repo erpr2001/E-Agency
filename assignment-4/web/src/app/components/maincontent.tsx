@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import styles from "@/app/ui/about.module.css";
 
 const MainContent = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -59,7 +60,7 @@ const MainContent = () => {
 
 
 
-      <section id="about" className="py-16">
+      {/* <section id="about" className="py-16">
         <div className="container mx-auto px-4">
           <h4 className="text-2xl font-bold text-center mb-4">About</h4>
           <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
@@ -67,6 +68,50 @@ const MainContent = () => {
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
             ex ea commodo consequat.
           </p>
+        </div>
+      </section> */}
+
+
+      <section id="about" className="py-16">
+        <div className="container mx-auto px-4">
+          <h4 className="text-2xl font-bold text-center mb-4">About</h4>
+          <div className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            <div className={styles.about}>
+
+              <div className="about-container">
+                <div className="about-header">
+                  <h1>About E-Agency</h1>
+                </div>
+                <div className="about-content">
+                  <p>
+                    Welcome to <strong>E-Agency</strong>, your one-stop destination for finding trusted local service providers tailored to your needs!
+                    Inspired by the UrbanClap concept, E-Agency is an online platform designed to simplify your search for reliable professionals offering
+                    a wide range of services, from home maintenance and cleaning to beauty treatments and fitness training.
+                  </p>
+                  <p>
+                    At E-Agency, we understand the importance of convenience, trust, and quality. That’s why we bring you a curated list of skilled
+                    service providers who are just a click away. Whether you’re looking to transform your living space, pamper yourself, or achieve
+                    your fitness goals, E-Agency is here to connect you with the best in your area.
+                  </p>
+                  <h2>Why Choose E-Agency?</h2>
+                  <ul>
+                    <li><strong>Convenience:</strong> Easily browse, book, and manage services from the comfort of your home.</li>
+                    <li><strong>Verified Professionals:</strong> Work with experts who meet our strict quality and safety standards.</li>
+                    <li><strong>Personalized Solutions:</strong> Choose from a variety of services tailored to your specific needs.</li>
+                    <li><strong>Transparent Pricing:</strong> Get upfront pricing with no hidden fees.</li>
+                    <li><strong>Seamless Experience:</strong> Enjoy a user-friendly platform that simplifies the booking process.</li>
+                  </ul>
+                  <p>
+                    Whether you need a plumber, a makeup artist, or a personal trainer, E-Agency is dedicated to making your life easier by connecting
+                    you with trusted professionals at the right time and place.
+                  </p>
+                  <p>
+                    Experience hassle-free service booking with <strong>E-Agency</strong>—where quality meets convenience!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
